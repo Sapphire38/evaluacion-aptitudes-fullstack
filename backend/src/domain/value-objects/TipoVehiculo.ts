@@ -20,6 +20,10 @@ export class TipoVehiculo {
         return this.value;
     }
 
+    toJSON(): string {
+        return this.value;
+    }
+
     static create(value: string): TipoVehiculo {
         return new TipoVehiculo(value);
     }

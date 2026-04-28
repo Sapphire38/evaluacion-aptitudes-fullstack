@@ -23,6 +23,10 @@ export class EstadoConductor {
         return this.value === EstadosConductor.ACTIVO;
     }
 
+    toJSON(): string {
+        return this.value;
+    }
+
     static create(value: string): EstadoConductor {
         return new EstadoConductor(value);
     }

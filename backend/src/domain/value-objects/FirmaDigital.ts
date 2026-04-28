@@ -20,4 +20,8 @@ export class FirmaDigital {
     getValue(): string {
         return this.value;
     }
+
+    toJSON(): string {
+        return this.value;
+    }
 }

@@ -33,4 +33,8 @@ export class ResponsableVehiculo {
     esUsuario(): boolean {
         return this.tipo.getValue() === TiposResponsable.USUARIO;
     }
+
+    toJSON(): { id: string; tipo: string } {
+        return { id: this.idOrNombre, tipo: this.tipo.getValue() };
+    }
 }

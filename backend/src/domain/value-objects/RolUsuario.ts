@@ -49,7 +49,9 @@ export class RolUsuario {
         return this.getJerarquia() >= JerarquiaRoles[rol];
     }
 
-    
+    toJSON(): string {
+        return this.value;
+    }
 
     static create(value: string): RolUsuario {
         return new RolUsuario(value);

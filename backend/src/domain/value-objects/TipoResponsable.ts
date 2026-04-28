@@ -19,6 +19,10 @@ export class TipoResponsable {
         return this.value;
     }
 
+    toJSON(): string {
+        return this.value;
+    }
+
     static create(value: string): TipoResponsable {
         return new TipoResponsable(value);
     }

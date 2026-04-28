@@ -1,6 +1,6 @@
 export const EstadosRonda = {
   APTA: "APTA",
-  NO_APTA: "NO_APTA",
+  NO_APTA: "NO APTA",
 } as const;
 
 export type EstadoRonda = (typeof EstadosRonda)[keyof typeof EstadosRonda];
