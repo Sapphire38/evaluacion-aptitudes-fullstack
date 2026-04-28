@@ -9,22 +9,22 @@ export const useAuth = () => {
   const dispatcher = useDispatch<AppDispatch>();
 
   const handleLogin = async (values: LoginCredentials) => {
-    const { user } = await dispatcher(
+    const result = await dispatcher(
       authActions.login({
         email: values.email,
         password: values.password,
       })
     ).unwrap();
     return {
-      user,
+      usuario: result.data!.usuario,
     };
   };
 
-  const logoutUser = (): boolean => {
+  const logoutUser = async (): Promise<boolean> => {
     try {
-      const logoutSuccess = logoutUseCase();
+      const ok = await logoutUseCase();
       dispatcher(logout());
-      return logoutSuccess;
+      return ok;
     } catch {
       dispatcher(logout());
       return false;

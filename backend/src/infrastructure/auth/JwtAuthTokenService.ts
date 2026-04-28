@@ -9,7 +9,7 @@ export class JwtAuthTokenService implements IAuthTokenService {
 
     constructor(secret?:string,expiresIn?:string){
         this.secret = secret || process.env.JWT_SECRET || 'secret';
-        this.expiresIn = expiresIn || process.env.JWT_EXPIRES_IN || '1h';
+        this.expiresIn = expiresIn || process.env.JWT_EXPIRES_IN || '7d';
     }
 
     async generarToken(payload: IAuthTokenPayload): Promise<{value:string,expiresIn:number}> {

@@ -22,12 +22,12 @@ const LoginForm = () => {
             }
 
             try {
-                const { user } = await handleLogin({
+                const { usuario } = await handleLogin({
                     email: value.email,
                     password: value.password
                 })
                 navigate("/home", { replace: true })
-                toast.success(`Bienvenido ${user.name}`)
+                toast.success(`Bienvenido ${usuario.nombreCompleto}`)
             } catch (error: unknown) {
                 const errorResponse = error as AppError;
                 toast.error(` ${errorResponse.message}. `, {
@@ -68,7 +68,7 @@ const LoginForm = () => {
                             onChange={(e) => field.handleChange(e.target.value)}
                             onBlur={field.handleBlur}
                             variant={field.state.meta.errors.length > 0 ? "error" : "default"}
-                            helperComponent={field.state.meta.errors[0]}
+                            helperComponent={typeof field.state.meta.errors[0] === "string" ? field.state.meta.errors[0] : undefined}
                             className="w-full"
                         />
                 )}
@@ -96,7 +96,7 @@ const LoginForm = () => {
                             onChange={(e) => field.handleChange(e.target.value)}
                             onBlur={field.handleBlur}
                             variant={field.state.meta.errors.length > 0 ? "error" : "default"}
-                            helperComponent={field.state.meta.errors[0]}
+                            helperComponent={typeof field.state.meta.errors[0] === "string" ? field.state.meta.errors[0] : undefined}
                             className="w-full"
                         />
                 )}

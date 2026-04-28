@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { connectToMongoDB } from "../mongodb/conexion";
 import { ServiceContainer } from "../../ServiceContainer";
 import { seedData } from "./seedData";

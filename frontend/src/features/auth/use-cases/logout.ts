@@ -1,9 +1,11 @@
-import { deleteCookie } from "../../../shared/utils/cookieUtils";
+import { fetcher } from "../../../app/instances/axios.intance";
+import type { IResponse } from "../../../entities/response/IResponse";
 
-export const logoutUseCase = (): boolean => {
-    const success = deleteCookie("token", {
-      path: "/",
-    });
-    
-    return success;
+export const logoutUseCase = async (): Promise<boolean> => {
+  try {
+    await fetcher.post<IResponse<unknown>>("/auth/logout");
+    return true;
+  } catch {
+    return false;
+  }
 };

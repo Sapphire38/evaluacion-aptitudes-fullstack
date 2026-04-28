@@ -61,7 +61,7 @@ const authSlice = createSlice({
         login.fulfilled,
         (state, action: PayloadAction<UseCaseLoginResult>) => {
           state.isAuthenticated = true;
-          state.usuario = action.payload.user;
+          state.usuario = action.payload.data?.usuario ?? null;
           state.loading = false;
         }
       )
